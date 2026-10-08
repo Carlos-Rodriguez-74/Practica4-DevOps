@@ -1,0 +1,16 @@
+name: Alerta de cambios
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  notificar:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Enviar notificacion
+        run: |
+          curl -d "Se ha realizado un cambio en el repositorio: ${{ github.repository }}" \
+          ntfy.sh/devops-itla
